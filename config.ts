@@ -22,7 +22,6 @@ const wallets = (() => {
 })();
 
 export const config = defineConfig({
-  ssr: isServer,
   chains: {
     polkadot: {
       descriptor: dot,
@@ -38,6 +37,5 @@ export const config = defineConfig({
     },
   },
   // reactive-dot expects an array of wallet providers
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  wallets: wallets as any,
+  wallets: wallets,
 });
