@@ -22,6 +22,7 @@ const wallets = (() => {
 })();
 
 export const config = defineConfig({
+  ssr: false,
   chains: {
     polkadot: {
       descriptor: dot,
@@ -36,6 +37,5 @@ export const config = defineConfig({
       decimals: 10,
     },
   },
-  // reactive-dot expects an array of wallet providers
   wallets: wallets,
 });
