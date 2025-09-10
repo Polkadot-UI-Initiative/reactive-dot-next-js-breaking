@@ -2,6 +2,7 @@ import Image from "next/image";
 import { TxButton } from "./tx-button";
 import { SelectAccount } from "./select-account";
 import { Suspense } from "react";
+import { BlockInfo } from "./block-info";
 
 export default function Home() {
   return (
@@ -18,14 +19,23 @@ export default function Home() {
         <Suspense
           fallback={
             <select>
-              <option>Loading...</option>
+              <option>Loading Accounts...</option>
             </select>
           }
         >
           <SelectAccount />
         </Suspense>
         <Suspense fallback={<button disabled>Loading Tx Button...</button>}>
-          <TxButton />
+          <TxButton chainId="polkadot" />
+        </Suspense>
+        <Suspense fallback={<button disabled>Loading Tx Button...</button>}>
+          <TxButton chainId="paseo" />
+        </Suspense>
+        <Suspense fallback={<div>Loading Block Info...</div>}>
+          <BlockInfo chainId="polkadot" />
+        </Suspense>
+        <Suspense fallback={<div>Loading Block Info...</div>}>
+          <BlockInfo chainId="paseo" />
         </Suspense>
       </main>
     </div>
